@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Data Redundancy Removal System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="hero">
+
+```
+<h1>🗂️ Data Redundancy Removal System</h1>
+
+<p class="hero-text">
+    Smart duplicate detection and user management platform.
+    Maintain a clean, organized, and efficient database with ease.
+</p>
+
+<div class="hero-buttons">
+
+    <a href="#form-section" class="hero-btn">
+        ➕ Add Record
+    </a>
+
+    <a href="/export" class="hero-btn secondary">
+        📥 Export Data
+    </a>
+
+</div>
+```
+
+</div>
+
+<div class="dashboard">
+
+```
+<div class="card">
+    <h3>👥 Total Users</h3>
+    <p>{{ total_users }}</p>
+</div>
+
+<div class="card">
+    <h3>🔍 Search Results</h3>
+    <p>{{ search_results }}</p>
+</div>
+
+<div class="card">
+    <h3>💾 Database</h3>
+    <p>Active</p>
+</div>
+
+<div class="card">
+    <h3>⚠️ Duplicates</h3>
+    <p>{{ duplicate_count }}</p>
+</div>
+```
+
+</div>
+
+<p class="{{ message_type }}">{{ message }}</p>
+
+<div class="action-container">
+
+```
+<div class="action-card">
+
+    <h2>➕ Add New User</h2>
+
+    <form method="POST" id="form-section">
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Enter Name"
+            required
+        >
+
+        <br><br>
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Enter Email"
+            required
+        >
+
+        <br><br>
+
+        <button type="submit">
+            Add User
+        </button>
+
+    </form>
+
+</div>
+
+<div class="action-card">
+
+    <h2>🔍 Search Users</h2>
+
+    <form method="GET">
+
+        <input
+            type="text"
+            name="search"
+            placeholder="Search Name or Email"
+            value="{{ search }}"
+        >
+
+        <br><br>
+
+        <button type="submit">
+            Search
+        </button>
+
+    </form>
+
+</div>
+```
+
+</div>
+
+<br>
+
+<a href="/export" class="export-btn">
+    📥 Export Records
+</a>
+
+<br><br>
+
+<h2 style="color:white;">
+    📋 User Database Records
+</h2>
+
+<p style="color:white;">
+    Showing {{ search_results }} records
+</p>
+
+<div class="table-container">
+
+```
+<table>
+
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Action</th>
+    </tr>
+
+    {% for user in users %}
+    <tr>
+
+        <td>{{ user[0] }}</td>
+        <td>{{ user[1] }}</td>
+        <td>{{ user[2] }}</td>
+
+        <td>
+
+            <a href="/edit/{{ user[0] }}"
+               class="edit-btn">
+                Edit
+            </a>
+
+            <a href="/delete/{{ user[0] }}"
+               class="delete-btn"
+               onclick="return confirm('Are you sure you want to delete this record?')">
+                Delete
+            </a>
+
+        </td>
+
+    </tr>
+    {% endfor %}
+
+</table>
+```
+
+</div>
+
+<section class="tech-stack">
+
+```
+<h2>🚀 Technologies Used</h2>
+
+<div class="tech-grid">
+
+    <div class="tech-card">🐍 Python</div>
+
+    <div class="tech-card">⚡ Flask</div>
+
+    <div class="tech-card">🗄 SQLite</div>
+
+    <div class="tech-card">🌐 HTML5</div>
+
+    <div class="tech-card">🎨 CSS3</div>
+
+</div>
+```
+
+</section>
+
+<footer>
+
+```
+<h3>🚀 Developed by Tubanaz Shaikh</h3>
+
+<p>
+    Python • Flask • SQLite
+</p>
+
+<p>
+    CodeAlpha Internship Project 2026
+</p>
+```
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit User</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="navbar">
+        <h2>🗂️ Data Redundancy Removal System</h2>
+    </div>
+
+    <div class="about-section">
+
+        <h2>✏️ Edit User Record</h2>
+
+        <p>
+            Update user information and maintain accurate database records.
+        </p>
+
+    </div>
+
+    <form method="POST">
+
+        <label>Name:</label><br>
+
+        <input
+            type="text"
+            name="name"
+            value="{{ user[1] }}"
+            required
+        >
+
+        <br><br>
+
+        <label>Email:</label><br>
+
+        <input
+            type="email"
+            name="email"
+            value="{{ user[2] }}"
+            required
+        >
+
+        <br><br>
+
+        <button type="submit">
+            💾 Update User
+        </button>
+
+        <br><br>
+
+        <a href="/" class="export-btn">
+            ⬅ Back to Dashboard
+        </a>
+
+    </form>
+
+    <footer>
+        Developed by Tubanaz Shaikh | CodeAlpha Internship Project 2026
+    </footer>
+
+</body>
+</html>
